@@ -16,15 +16,17 @@ public class Roommate implements Serializable, Cloneable, Comparable<Roommate> {
 	private String address;
 	private String mobile;
 	private LocalDate dateOfJoining; 
+	private String email;
 
 	public Roommate() {
 	}
 
-	public Roommate(String name, String address, String mobile, LocalDate dateOfJoining) throws Exception {
+	public Roommate(String name, String address, String mobile, LocalDate dateOfJoining , String email) throws Exception {
 		this.name = name;
 		this.address = address;
 		this.mobile = mobile;
 		this.dateOfJoining = dateOfJoining;
+		this.email = email;
 		validate();
 	}
 
@@ -67,11 +69,19 @@ public class Roommate implements Serializable, Cloneable, Comparable<Roommate> {
 	public void setDateOfJoining(LocalDate dateOfJoining) {
 		this.dateOfJoining = dateOfJoining;
 	}
+	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 	@Override
 	public String toString() {
 		return "Roommate [no=" + no + ", name=" + name + ", address=" + address + ", mobile=" + mobile
-				+ ", dateOfJoining=" + dateOfJoining + "]";
+				+ ", dateOfJoining=" + dateOfJoining + " , Email : " + email + " ]";
 	}
 
 	@Override

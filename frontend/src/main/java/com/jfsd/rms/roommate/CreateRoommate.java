@@ -37,7 +37,11 @@ public class CreateRoommate {
 			} else {
 				date = LocalDate.now();
 			}
-			Roommate rmt = new Roommate(name, address, mobile, date);
+			System.out.print("Email: ");
+			String email = in.nextLine();
+			//System.out.print("Gender - M(Male) F(Female) : ");
+			
+			Roommate rmt = new Roommate(name, address, mobile, date, email);
 			RoommateController rmtController = new RoommateController();
 			RMSResponseModel response = rmtController.addRoommate(rmt);
 			System.out.println(response.getResult());
