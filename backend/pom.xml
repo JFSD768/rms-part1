@@ -17,13 +17,4 @@
     <version>1.0</version>
     <packaging>jar</packaging>
 
-    <dependencies>
-		<!-- datamodel -->
-        <dependency>
-            <groupId>com.jfsd.rms</groupId>
-			<artifactId>datamodel</artifactId>
-			<version>1.0</version>
-        </dependency>
-    </dependencies>
-
 </project>

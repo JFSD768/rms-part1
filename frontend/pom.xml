@@ -20,13 +20,6 @@
 
     <dependencies>
 
-		<!-- datamodel --> 
-        <dependency>
-            <groupId>com.jfsd.rms</groupId>
-			<artifactId>datamodel</artifactId>
-			<version>1.0</version>
-        </dependency>
-
         <!-- backend -->
         <dependency>
             <groupId>com.jfsd.rms</groupId>
