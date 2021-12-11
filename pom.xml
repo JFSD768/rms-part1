@@ -14,7 +14,7 @@
 	<properties>
 		<!-- Dependency versions -->
 		<maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
-		<!-- Java 8 -->
+		<!-- Java 11 -->
 		<java.version>11</java.version>
 		<checkstyle-maven-plugin.version>3.1.2</checkstyle-maven-plugin.version>
 		<!-- Encoding -->
@@ -109,14 +109,36 @@
 			<!-- Build an executable JAR -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.0.1</version>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<!-- exclude junit, we need runtime dependency only -->
+							<includeScope>runtime</includeScope>
+							<outputDirectory>${project.build.directory}/dependency-jars/</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>3.2.0</version>
+				<version>3.0.2</version>
 				<configuration>
+					<excludes>
+						<exclude>**/log4j.properties</exclude>
+					</excludes>
 					<archive>
 						<manifest>
 							<addClasspath>true</addClasspath>
-							<classpathPrefix>lib/</classpathPrefix>
-							<mainClass>com.jfsd.rms.RMSAppMain</mainClass>
+							<classpathPrefix>dependency-jars/</classpathPrefix>
+							<mainClass>com.fsjd.rms.RMSAppMain</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
